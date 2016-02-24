@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Node.js Blog</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/clean-blog.min.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+</head>
+
+<body>
+ <style>
+     a { text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; }
+</style>
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">Let's Learn About Node</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="index.html">Home</a>
+                    </li>
+                    <li>
+                        <a href="about.html">Sources</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Header -->
+    <!-- Set your background image for this header on the line below. -->
+    <header class="intro-header" style="background-image: url('img/motherboard.jpg')">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="site-heading">
+                        <style>
+                        h1 {color: #DB7093;
+                        text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+                        }
+                        </style>
+                        <h1>Node.js Blog</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <!-- Main Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p><h3>What the heck is Node.js?</h3>
+                    If you are a student in the web development field like myself, you may
+                    be asking yourself this question (among many others) when wading through the vast ocean of "web dev" gargon. Hopefully this blog will provide you with a little more insight into what Node.js is, and ease that feeling of sinking in an ocean of foreign knowledge.
+                    <br>
+                    <br>
+                    Essentially, Node.js is library that acts as an interface for you as a user to be able to access Google's V8 JavaScript Runtime (a fancy way of saying a really fast JavaScript interpreter). Node allows you to download V8 and embed it for web servers. It is a command line tool made for the server side of coding with JavaScript - but is not truly JavaScript.
+                    <br>
+                    <h3>That's great, but so what?</h3>
+                    Node.js is actually pretty interesting because it behaves like the energizer bunny - it never stops. Node is able to idle between commands and requests, but it never comes to a stop. This is unique because while the connection is idle, that means a new connection (or many) can be added. This behavior is what's called "non-blocking IO" - IO meaning "input/output". 
+                    <br>
+                    <br>
+                    Node handles concurrency of connections pretty well because it never waits for anything, and actually tends to perform better -especially under high concurrency- than a traditional web server.
+                    <br>
+                    <br>
+                    <img src="img/exampleNode.png">
+                    <br>
+                    <br>
+                    This screenshot above shows how Node handles those high concurrency levels really well (100 connections were established in approximately 2 seconds without any issues).  
+                    <br>
+                    <br>
+                    Node is also different in how information is returned while using it. Say for example that you are working with a SQL database and run a simple script that will return some unkown number of results to you. In this scenario, let's assume that you are not super familiar with the database, so you won't know how many rows you're expecting to be returned.
+                    <br>
+                    <br>
+                    With Node, instead of using up valuable server memory to buffer large amounts of data (your results) being returned from the script, the results can be delivered back to you in chunks so that server memory isn't wasted, and less time is used to complete the request. Pretty neat, huh?
+                    <br>
+                    <br>
+                    Node also comes bundled with this tool called NPM - short for Node Package Manager.NPM is really nifty, especially when using other utilities such as Bower, Yeoman, and Grunt since you can easily install all three of those tools from the command line using a command with npm. 
+                    <br>
+                    <h3>How about an easy example?</h3>
+                    <br>
+                    <img src="img/helloWorld.png">
+                    <br>
+                    <br>
+                    <p>Firstly, this is not a code fragment that I came up with on my own, so credit should be given to <a href="http://www.makeuseof.com/tag/what-is-node-js-and-why-should-i-care-web-development/" target="_blank">James Bruce</a>. 
+                    <br>
+                    <p>This is a really nice, simple example for someone looking at Node for the first time to see analyzed. 
+                    What's happening in the first line is that a http module is being added to the project. The ".createServer" is creating a server which will be passed an anonymous function in as a parameter. For every new connection that's made (remember the concurrency we talked about earlier?) – this function will be called. 
+                    <br>
+                    <br>
+                    This function accepts two arguments – request and response. Request contains the request parameters from the user and response is what we’ll use to send stuff back to the user. The response object will write a line back to the user with the HTTP code 200 (“ok”) and content type, and will write a “Hello World!” message, then end the response.
+                    <br>
+                    <br>
+                    In the last two lines, the server is being told to listen on port 8080 for incoming requests, and to output a quick message to the the command line that will tell us if it's running or not.
+                    </p>
+                    <br>
+                    <br>
+
+                    <p class="post-meta">Posted by Megan Balcom on February 24, 2016</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+            
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <p class="copyright text-muted">Copyright &copy; Megan's Node.js Blog 2016</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="js/clean-blog.min.js"></script>
+
+</body>
+
+</html>
